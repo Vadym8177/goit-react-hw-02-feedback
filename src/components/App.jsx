@@ -4,12 +4,21 @@ import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
 import { Notification } from './Notification/Notification';
 import { Section } from './Section/Section';
 import { Statistics } from './Statistics/Statistics';
+import PropTypes from 'prop-types';
 
 export class App extends Component {
+  static defaultProps = {
+    initialValue: 0,
+  };
+
+  static propTypes = {
+    initialValue: PropTypes.number.isRequired,
+  };
+
   state = {
-    good: 0,
-    neutral: 0,
-    bad: 0,
+    good: this.props.initialValue,
+    neutral: this.props.initialValue,
+    bad: this.props.initialValue,
   };
 
   feedbackValue = name => {
